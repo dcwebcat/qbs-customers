@@ -1,0 +1,44 @@
+<nav class="navbar navbar-default navbar-fixed-top main-nav navbar-right">
+	<div class="container-fluid">
+		<div class="row">
+			
+			<div class="col-md-3">      
+				<a class="navbar-brand" href="http://copyquality.com"><%= image_tag("qbs-logo180.png", :alt => "quality business solutions logo") %></a>
+			</div>
+			
+			<div class="col-md-9">
+				<div class="navbar-header">
+					<button type="button" class="btn btn-navbar navbar-toggle collapsed collapse.in" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</button>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Portal Home", root_path %></li>
+        <li><%= link_to "Link", "" %></li>
+        <li><%= link_to "Link", "" %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+        <li><%= link_to "Link", "" %></li>
+        <li><%= link_to "Update Profile", "" %></li>
+        <li><%= link_to "Logout", "", method: :delete %></li>
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

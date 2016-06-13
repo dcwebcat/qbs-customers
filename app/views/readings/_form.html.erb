@@ -1,0 +1,25 @@
+<%= render 'shared/errors', obj: @reading %>
+
+<div class="row">
+    <div class="col-md-8 well col-md-offset-2">
+        <%= form_for(@reading, html: { multipart: true }) do |f| %>
+            <%= f.label :equipment_number, "Equipment Number:" %>
+            <%= f.text_field :equipment_number %>
+            
+            <%= f.label :reading_bw, "Black and White Reading:" %>
+            <%= f.text_field :reading_bw %>
+            
+            <%= f.label :reading_c1, "Color Level 1 Reading:" %>
+            <%= f.text_field :reading_c1 %>
+            
+            <%= f.label :reading_c2, "Color Level 2 Reading:" %>
+            <%= f.text_field :reading_c2 %>
+            
+            <%= f.label :reading_c3, "Color Level 3 Reading:" %>
+            <%= f.text_field :reading_c3 %>
+            
+            <%= f.submit (@reading.new_record? ? 'Log Meter Readings' : 'Edit Meter Readings'), class: "btn btn-success" %>
+        <% end %>
+            
+    </div>
+</div>

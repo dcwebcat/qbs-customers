@@ -305,3 +305,22 @@ footer a:active {
 .footer-address {
 	text-align: right;
 }
+
+/* ------------------------------ */
+/* Form */
+/* ------------------------------ */
+
+.well {
+	border: 1px solid #e62222;
+}
+
+input, textarea, select, .uneditable-input {
+	border: 1px solid #333333;
+	border-radius: 5px;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+input {
+	height: auto !important;
+}

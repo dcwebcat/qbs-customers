@@ -1,0 +1,22 @@
+<div class="container">
+<h1>Readings for Equipment Number: <%= @reading.equipment_number %></h1>
+<hr/>
+
+    <div class="row well">
+        <div class="col-md-2">
+            <h4><%= link_to @reading.user.customer_number, user_path(@reading.user) %></h4>
+        </div>
+        <div class="col-md-5">
+            <h4><%= @reading.user.company %></h4>
+        </div>
+        <div class="col-md-5">
+            <p>Black and White Reading: <%= @reading.reading_bw %></p>
+            <p>Color Level 1 Reading: <%= @reading.reading_c1 %></p>
+            <p>Color Level 2 Reading: <%= @reading.reading_c2 %></p>
+            <p>Color Level 3 Reading: <%= @reading.reading_c3 %></p>
+            <p>
+                <span class="quiet"><small><%= time_ago_in_words(@reading.created_at) %> ago</small></span>
+            </p>
+        </div>
+    </div>
+</div>

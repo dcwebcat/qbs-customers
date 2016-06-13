@@ -1,0 +1,15 @@
+<div class="container">
+<h1>Readings for Customer Number: <%= @user.customer_number %></h1>
+<h4 class="center"><%= @user.company %></h4>
+<hr/>
+
+    <div class="row well">
+        <div class="col-md-12">
+            <h2>Equipment Number:</h2>
+            <% @readings.each do |reading| %>
+              <h4 class="center"><%= link_to reading.equipment_number, reading_path(reading) %> - <span class="quiet"><small><%= time_ago_in_words(reading.created_at) %> ago</small></span></h4> 
+
+            <% end %>
+        </div>
+    </div>
+</div>

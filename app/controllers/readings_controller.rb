@@ -25,6 +25,21 @@ class ReadingsController < ApplicationController
       end
    end
    
+   def edit
+       @reading = Reading.find(params[:id])
+   end
+   
+   def update
+       @reading = Reading.find(params[:id])
+      
+      if @reading.update(reading_params)
+          flash[:success] = "Your reading has been updated. Thank you."
+          redirect_to reading_path(@reading)
+      else
+         render :edit 
+      end
+   end
+   
    private
    
     def reading_params

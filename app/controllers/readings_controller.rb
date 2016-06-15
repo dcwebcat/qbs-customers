@@ -3,7 +3,7 @@ class ReadingsController < ApplicationController
    before_action :set_reading, only: [:edit, :update, :show, :record]
    before_action :require_user 
    before_action :require_same_user, only: [:show, :edit, :update]
-   before_action :require_admin, only: [:record]
+   before_action :require_admin, only: [:record, :destroy]
    
    def index
      if current_user.admin?
@@ -26,6 +26,7 @@ class ReadingsController < ApplicationController
       @reading.user = current_user
       
       if @reading.save
+          UserMailer.readings_email(@reading).deliver_now
           flash[:success] = "Your reading has been received. Thank you."
           redirect_to readings_path
       else
@@ -39,6 +40,8 @@ class ReadingsController < ApplicationController
    
    def update
       if @reading.update(reading_params)
+          @reading.update_attribute(:recorded, false)
+          UserMailer.updated_readings_email(@reading).deliver_now
           flash[:success] = "Your reading has been updated. Thank you."
           redirect_to reading_path(@reading)
       else
@@ -54,6 +57,12 @@ class ReadingsController < ApplicationController
          @reading.update_attribute(:recorded, false)
          redirect_to reading_path(@reading)
       end 
+   end
+   
+   def destroy
+     Reading.find(params[:id]).destroy
+     flash[:success] = "Reading deleted."
+     redirect_to readings_path
    end
    
    private

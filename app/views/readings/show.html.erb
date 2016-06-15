@@ -24,13 +24,14 @@
             <%= link_to "Edit Meter Readings", edit_reading_path(@reading), class: "center btn btn-primary btn-white-text" %>
             <% end %>
             <% if logged_in? and current_user.admin? %>
+            <%= link_to "Delete Meter Readings", @reading, method: :delete, class: "center btn btn-danger btn-white-text", data: {confirm: "Are you sure?"} %>
             <p class="recorded">Recorded in System: 
             <% if @reading.recorded == false %>
                No<br>
-               <%= link_to "Mark as Recorded", record_reading_path(@reading), class: "center btn btn-danger btn-white-text" %>
+               <%= link_to "Mark as Recorded", record_reading_path(@reading), class: "center btn btn-success btn-white-text" %>
             <% else %>
                Yes<br>
-               <%= link_to "Mark as Not Recorded", record_reading_path(@reading), class: "center btn btn-danger btn-white-text" %>
+               <%= link_to "Mark as Not Recorded", record_reading_path(@reading), class: "center btn btn-success btn-white-text" %>
             <% end %>
             </p>
             <% end %>

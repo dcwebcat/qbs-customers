@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/support', to: 'support#index'
   
   resources :readings
-  resources :users
+  resources :users, except: [:destroy]
   
   get '/users/:id/readings' => 'users#readings', :as => :user_readings
   

@@ -6,10 +6,20 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
   
+  get '/home', to: 'welcome#home'
+  
+  get '/support', to: 'support#index'
+  
   resources :readings
   resources :users
   
   get '/users/:id/readings' => 'users#readings', :as => :user_readings
+  
+  get '/readings/:id/record' => 'readings#record', :as => 'record_reading'
+  
+  get '/login', to: "logins#new"
+  post '/login', to: "logins#create"
+  get '/logout', to: "logins#destroy"
 
   #get '/readings', to: 'readings#index'
   #get '/readings/new', to: 'readings#new', as: 'new-reading'

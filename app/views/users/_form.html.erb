@@ -1,0 +1,20 @@
+<%= render 'shared/errors', obj: @user %>
+
+<div class="row">
+    <div class="col-md-8 well col-md-offset-2">
+        <h4>Please reference your invoice for your Customer Number.</h4>
+        <%= form_for @user do |f| %>
+            <%= f.label :company, "Company:" %>
+            <%= f.text_field :company %>
+            
+            <%= f.label :customer_number, "Customer Number:" %>
+            <%= f.text_field :customer_number %>
+            
+            <%= f.label :password, "Password:" %>
+            <%= f.password_field :password %>
+            
+            <%= f.submit (@user.new_record? ? 'Add Customer' : 'Edit Customer'), class: "btn btn-success" %>
+        <% end %>
+            
+    </div>
+</div>

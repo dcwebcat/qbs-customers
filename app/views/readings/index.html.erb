@@ -1,9 +1,13 @@
 <div class="container">
 <h1>All Readings</h1>
 <hr/>
-<%= link_to "Enter New Meter Readings", new_reading_path, class: "center btn btn-success btn-white-text" %>
+<div class="center">
+<%= link_to "Enter New Meter Readings", new_reading_path, class: "center btn btn-primary btn-white-text" %>
 <br><br>
+<%= will_paginate %>
+</div>
 <% @readings.each do |reading| %>
+    
     <div class="row well">
         <div class="col-md-1">
             <h4><%= link_to reading.user.customer_number, user_path(reading.user) %></h4>
@@ -13,11 +17,46 @@
         </div>
         <div class="col-md-3">
             <h4>Equipment Number: <%= link_to reading.equipment_number, reading_path(reading) %></h4>
-        </div>
-        <div class="col-md-3">
+            <small>Created <%= time_ago_in_words(reading.created_at) %> ago</small><br>
             <small>Updated <%= time_ago_in_words(reading.updated_at) %> ago</small>
         </div>
+        <div class="col-md-3">
+            <% if logged_in? and current_user.admin? %>
+                <p class="recorded">Recorded in System:</p>
+                <% if reading.recorded == false %>
+                   <p>No</p>
+                <% else %>
+                   <p>Yes</p>
+                <% end %>
+            <% end %>
+        </div>
     </div>
+    
 <% end %>
-
+<div class="center">
+<%= will_paginate %>
 </div>
+</div>
+
+<script type="text/javascript">
+    
+    $(document).ready(function() {
+    $('#Rank').bind('change', function() {
+        var elements = $('div.container').children().hide(); // hide all the elements
+        var value = $(this).val();
+
+        if (value.length) { // if somethings' selected
+            elements.filter('.' + value).show(); // show the ones we want
+        }
+    }).trigger('change');
+    
+    $('.second-level-select').bind('change', function() {
+        var elements = $('div.second-level-container').children().hide(); // hide all the elements
+        var value = $(this).val();
+
+        if (value.length) { // if somethings' selected
+            elements.filter('.' + value).show(); // show the ones we want
+        }
+    }).trigger('change');
+});
+</script>

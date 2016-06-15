@@ -15,11 +15,26 @@
             <p>Color Level 2 Reading: <%= @reading.reading_c2 %></p>
             <p>Color Level 3 Reading: <%= @reading.reading_c3 %></p>
             <p>
+                <span class="quiet"><small>Created <%= time_ago_in_words(@reading.created_at) %> ago</small></span><br>
                 <span class="quiet"><small>Updated <%= time_ago_in_words(@reading.updated_at) %> ago</small></span>
             </p>
         </div>
         <div class="col-md-3">
-            <%= link_to "Edit Meter Readings", edit_reading_path(@reading), class: "center btn btn-success btn-white-text" %>
+            <% if logged_in? and @reading.user == current_user || current_user.admin? %>
+            <%= link_to "Edit Meter Readings", edit_reading_path(@reading), class: "center btn btn-primary btn-white-text" %>
+            <% end %>
+            <% if logged_in? and current_user.admin? %>
+            <p class="recorded">Recorded in System: 
+            <% if @reading.recorded == false %>
+               No<br>
+               <%= link_to "Mark as Recorded", record_reading_path(@reading), class: "center btn btn-danger btn-white-text" %>
+            <% else %>
+               Yes<br>
+               <%= link_to "Mark as Not Recorded", record_reading_path(@reading), class: "center btn btn-danger btn-white-text" %>
+            <% end %>
+            </p>
+            <% end %>
+            
         </div>
     </div>
 </div>

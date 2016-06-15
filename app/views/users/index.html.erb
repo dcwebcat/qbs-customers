@@ -1,7 +1,11 @@
 <div class="container">
 <h1>All Customers</h1>
 <hr/>
-
+<div class="center">
+<%= link_to "Add Customers", new_user_path, class: "center btn btn-success btn-white-text" %>
+<br>
+<%= will_paginate %>
+</div>
 <% @users.each do |user| %>
     <div class="row well">
         <div class="col-md-2">
@@ -12,5 +16,7 @@
         </div>
     </div>
 <% end %>
-
+<div class="center">
+<%= will_paginate %>
+</div>
 </div>

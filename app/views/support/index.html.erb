@@ -1,0 +1,147 @@
+<div class="container support">
+  <h1>Support Files</h1>
+  <hr/>
+  <h2>Select your machine from the options below for links to manuals and drivers</h2>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <select size="1" id="Machine" title="" name="Machine">
+          <option value="">-Select Your Machine Type-</option>
+          <option value="colorprint">Color Printer</option>
+          <option value="bwprint">Black and White Printer</option>
+          <option value="colormfp">Color Multi-function</option>
+          <option value="bwmfp">Black and White Multi-function</option>
+      </select>
+      
+      <div class="container2">
+          <div class="colorprint">
+              <select class="second-level-select">
+                  <option value="">-Select Your Model-</option>
+                  <option value="colorprint1">Color Printer 1</option>
+                  <option value="colorprint2">Color Printer 2</option>
+                  <option value="colorprint3">Color Printer 3</option>
+                  <option value="colorprint4">Color Printer 4</option>
+                  <option value="colorprint5">Color Printer 5</option>
+              </select>
+          </div>
+          <div class="bwprint">
+              <select class="second-level-select">
+                  <option value="">-Select Your Model-</option>
+                  <option value="bwprint1">BW Printer 1</option>
+                  <option value="bwprint2">BW Printer 2</option>
+                  <option value="bwprint3">BW Printer 3</option>
+                  <option value="bwprint4">BW Printer 4</option>
+                  <option value="bwprint5">BW Printer 5</option>
+              </select>
+          </div>
+          <div class="colormfp">
+              <select class="second-level-select">
+                  <option value="">-Select Your Model-</option>
+                  <option value="colormfp1">Color Multi-function 1</option>
+                  <option value="colormfp2">Color Multi-function 2</option>
+                  <option value="colormfp3">Color Multi-function 3</option>
+                  <option value="colormfp4">Color Multi-function 4</option>
+                  <option value="colormfp5">Color Multi-function 5</option>
+              </select>
+          </div>
+          <div class="bwmfp">
+              <select class="second-level-select">
+                  <option value="">-Select Your Model-</option>
+                  <option value="bwmfp1">BW Multi-function 1</option>
+                  <option value="bwmfp2">BW Multi-function 2</option>
+                  <option value="bwmfp3">BW Multi-function 3</option>
+                  <option value="bwmfp4">BW Multi-function 4</option>
+                  <option value="bwmfp5">BW Multi-function 5</option>
+              </select>
+          </div>
+      </div>
+      
+      <div class="second-level-container">
+          <div class="colorprint1">
+              Line of text for colorprint1
+          </div>
+          <div class="colorprint2">
+              Line of text for colorprint2
+          </div>
+          <div class="colorprint3">
+              Line of text for colorprint3
+          </div>
+          <div class="colorprint4">
+              Line of text for colorprint4
+          </div>  
+          <div class="colorprint5">
+              Line of text for colorprint5
+          </div> 
+          
+          <div class="bwprint1">
+              Line of text for bwprint1
+          </div>
+          <div class="bwprint2">
+              Line of text for bwprint2
+          </div>
+          <div class="bwprint3">
+              Line of text for bwprint3
+          </div>
+          <div class="bwprint4">
+              Line of text for bwprint4
+          </div>  
+          <div class="bwprint5">
+              Line of text for bwprint5
+          </div> 
+          
+          <div class="colormfp1">
+              Line of text for colormfp1
+          </div>
+          <div class="colormfp2">
+              Line of text for colormfp2
+          </div>
+          <div class="colormfp3">
+              Line of text for colormfp3
+          </div>
+          <div class="colormfp4">
+              Line of text for colormfp4
+          </div>  
+          <div class="colormfp5">
+              Line of text for colormfp5
+          </div> 
+          
+          <div class="bwmfp1">
+              Line of text for bwmfp1
+          </div>
+          <div class="bwmfp2">
+              Line of text for bwmfp2
+          </div>
+          <div class="bwmfp3">
+              Line of text for bwmfp3
+          </div>
+          <div class="bwmfp4">
+              Line of text for bwmfp4
+          </div>  
+          <div class="bwmfp5">
+              Line of text for bwmfp5
+          </div> 
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+    $('#Machine').bind('change', function() {
+        var elements = $('div.container2').children().hide(); // hide all the elements
+        var value = $(this).val();
+
+        if (value.length) { // if somethings' selected
+            elements.filter('.' + value).show(); // show the ones we want
+        }
+    }).trigger('change');
+    
+    $('.second-level-select').bind('change', function() {
+        var elements = $('div.second-level-container').children().hide(); // hide all the elements
+        var value = $(this).val();
+
+        if (value.length) { // if somethings' selected
+            elements.filter('.' + value).show(); // show the ones we want
+        }
+    }).trigger('change');
+
+</script>

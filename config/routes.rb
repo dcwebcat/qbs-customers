@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   post '/login', to: "logins#create"
   get '/logout', to: "logins#destroy"
 
+  resources :charges
+
   #get '/readings', to: 'readings#index'
   #get '/readings/new', to: 'readings#new', as: 'new-reading'
   #post '/readings', to: 'readings#create'

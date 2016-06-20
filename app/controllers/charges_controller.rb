@@ -1,8 +1,17 @@
 class ChargesController < ApplicationController
   
   before_action :require_user
+  before_action :require_admin, only: [:index]
+
+  
+  def index
+    @charges = Charge.all.order('created_at DESC').paginate(page: params[:page], per_page: 10)
+  end 
+
+  
   
   def new
+    @charge = Charge.new
   end
 
   def create
@@ -27,7 +36,14 @@ class ChargesController < ApplicationController
       redirect_to new_charge_path
       return
     end
-  
+    
+    @charge = Charge.new
+    @charge.user = current_user
+    @charge.invoice = @invoice
+    @charge.amount = @amount * 0.01
+    @charge.customer = @customer
+    @charge.save
+    
     Stripe::Charge.create(
       :amount => @amount,
       :currency => 'usd',
@@ -38,5 +54,9 @@ class ChargesController < ApplicationController
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to new_charge_path
+  
+    
   end
+  
+  
 end

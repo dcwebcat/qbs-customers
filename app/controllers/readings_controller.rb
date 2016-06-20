@@ -8,9 +8,9 @@ class ReadingsController < ApplicationController
    def index
      if current_user.admin?
       @readings = Reading.all.order('updated_at DESC').paginate(page: params[:page], per_page: 10)
-    else
+     else
       @readings = @current_user.readings.order('updated_at DESC').paginate(page: params[:page], per_page: 10)
-    end
+     end
    end
    
    def show

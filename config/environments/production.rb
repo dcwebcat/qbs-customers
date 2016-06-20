@@ -90,4 +90,6 @@ config.action_mailer.smtp_settings = {
   }
   config.action_mailer.default_url_options = { :host => 'qbs-customers.herokuapp.com', :protocol => 'https'}
   
+  config.stripe.publishable_key = 'pk_live_xV1Kep5W4HTmUV91j42tw18b'
+  
 end

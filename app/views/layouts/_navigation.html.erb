@@ -22,7 +22,7 @@
         <% if logged_in? %>
         <li><%= link_to "Portal Home", home_path %></li>
         <li><%= link_to "Meter Readings", readings_path %></li>
-        <li><%= link_to "Make Payment", "" %></li>
+        <li><%= link_to "Make Payment", new_charge_path %></li>
         <li><%= link_to "Support Files", support_path %></li>
         <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
         <% end %>

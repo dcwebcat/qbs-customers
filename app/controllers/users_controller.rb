@@ -11,6 +11,7 @@ class UsersController < ApplicationController
    
    def show
       @readings = @user.readings.order('updated_at DESC').paginate(page: params[:page], per_page: 10)
+      @charges = @user.charges.order('created_at DESC')
    end
 
    def new 

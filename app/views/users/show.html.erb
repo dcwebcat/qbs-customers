@@ -1,10 +1,10 @@
 <div class="container">
-<h1>Readings for Customer Number: <%= @user.customer_number %></h1>
+<h1>Readings and Payments for Customer Number: <%= @user.customer_number %></h1>
 <h4 class="center"><%= @user.company %></h4>
 <hr/>
 <div class="center">
 <%= link_to "Edit Customer", edit_user_path(@user), class: "center btn btn-success btn-white-text" %><br>
-<%= will_paginate @readings %>
+
 </div>
 <br>
 
@@ -16,9 +16,17 @@
             <% end %>
         </div>
     </div>
-    
-    <div class="center">
-        <%= will_paginate @readings %><br>
+    <div class="row well">
+        <% @charges.each do |charge| %>
+        <div class="col-xs-6">
+              <h4>Invoice Number: <%= charge.invoice %></h4> 
+        </div>
+        <div class="col-xs-6">
+              <h4>Payment Amount: <%= charge.amount %> - <span class="quiet"><small><%= time_ago_in_words(charge.created_at) %> ago</small></span></h4> 
+        </div>
+        <% end %>
     </div>
+    
+    
 </div>
 </div>

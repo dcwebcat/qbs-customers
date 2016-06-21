@@ -24,7 +24,9 @@
         <li><%= link_to "Meter Readings", readings_path %></li>
         <li><%= link_to "Payments", new_charge_path %></li>
         <li><%= link_to "Support Files", support_path %></li>
-        <li><%= link_to "Profile", edit_user_path(current_user) %></li>
+        <% end %>
+        <% if logged_in? && current_user.admin? == false %>
+        <li><%= link_to "History", user_path(current_user) %></li>
         <% end %>
         <% if logged_in? && current_user.admin? == true %>
         <li class="dropdown">
@@ -33,6 +35,7 @@
             <li><%= link_to "All Customers", users_path %></li>
             <li><%= link_to "All Readings", readings_path %></li>
             <li><%= link_to "All Payments", charges_path %></li>
+            <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
           </ul>
         </li>
         <% end %>

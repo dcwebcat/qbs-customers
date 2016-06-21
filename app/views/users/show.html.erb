@@ -18,11 +18,14 @@
     </div>
     <div class="row well">
         <% @charges.each do |charge| %>
-        <div class="col-xs-6">
+        <div class="col-xs-3">
               <h4>Invoice Number: <%= charge.invoice %></h4> 
         </div>
-        <div class="col-xs-6">
-              <h4>Payment Amount: <%= charge.amount %> - <span class="quiet"><small><%= time_ago_in_words(charge.created_at) %> ago</small></span></h4> 
+        <div class="col-xs-4">
+              <h4>Payment Amount: $<%= charge.amount %> - <span class="quiet"><small><%= time_ago_in_words(charge.created_at) %> ago</small></span></h4> 
+        </div>
+        <div class="col-xs-5">
+              <h4>Paid By: <%= charge.customer %></h4> 
         </div>
         <% end %>
     </div>

@@ -16,9 +16,10 @@ class ChargesController < ApplicationController
   end
 
   def create
-    @customer = current_user.customer_number
+    
     @invoice = params[:invoice]
     @amount = params[:amount]
+    @email = params[:email]
   
     @amount = @amount.gsub('$', '').gsub(',', '')
   
@@ -42,14 +43,15 @@ class ChargesController < ApplicationController
     @charge.user = current_user
     @charge.invoice = @invoice
     @charge.amount = @amount * 0.01
-    @charge.customer = @customer
+    @charge.customer = @email
     @charge.save
     
     Stripe::Charge.create(
       :amount => @amount,
       :currency => 'usd',
       :source => params[:stripeToken],
-      :description => 'Payment for Invoice #' + @invoice + ' for Customer #' + @customer
+      :description => 'Payment for Invoice #' + @invoice + ' for Customer #' + current_user.customer_number,
+      :receipt_email => @email
     )
   
     rescue Stripe::CardError => e

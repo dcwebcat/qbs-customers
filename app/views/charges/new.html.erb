@@ -18,6 +18,10 @@
                 <%= text_field_tag(:amount) %>
               </article>
               <article>
+                <%= label_tag(:email, 'Email for Receipt:') %>
+                <%= text_field_tag(:email) %>
+              </article>
+              <article>
                 <%= hidden_field_tag(:stripeToken) %>
               </article>
     

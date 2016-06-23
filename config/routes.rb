@@ -23,13 +23,6 @@ Rails.application.routes.draw do
   post '/login', to: "logins#create"
   get '/logout', to: "logins#destroy"
 
-  #get '/readings', to: 'readings#index'
-  #get '/readings/new', to: 'readings#new', as: 'new-reading'
-  #post '/readings', to: 'readings#create'
-  #get '/readings/:id/edit', to: 'readings#edit', as: 'edit_reading'
-  #patch '/readings/:id', to: 'readings#update'
-  #get '/readings/:id', to: 'readings#show', as: 'reading'
-  #delete '/readings/:id', to: 'readings#destroy'
-  
-
+  post '/exchange_token', to: "exchange_tokens#create"
+ 
 end

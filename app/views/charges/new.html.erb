@@ -24,10 +24,10 @@
               <article>
                 <%= hidden_field_tag(:stripeToken) %>
               </article>
-    
-              <button id='paymentButton' class="btn btn-success btn-md">Make Payment</button>
-              <br><br>
             <% end %>
+              <button id='paymentButton' class="btn btn-primary btn-md">Pay with Credit Card</button>
+              <button id='linkButton' class="btn btn-success btn-md"> Pay with Bank Account </button>
+              <br><br>
         </div>
     </div>
 </div>
@@ -75,4 +75,42 @@ $('#paymentButton').on('click', function(e) {
 $(window).on('popstate', function() {
   handler.close();
 });
+</script>
+
+
+<script src="https://cdn.plaid.com/link/stable/link-initialize.js"></script>
+<script>
+var linkHandler = Plaid.create({
+  selectAccount: true,
+  env: 'tartan',
+  clientName: 'Quality Business Solutions',
+  key: '41a8d274ee3df2c877874ce6bcb560',
+  product: 'auth',
+  onLoad: function() {
+    // The Link module finished loading.
+  },
+  onSuccess: function(public_token, metadata) {
+    // The onSuccess function is called when the user has successfully
+    // authenticated and selected an account to use.
+    //
+    // When called, you will send the public_token and the selected
+    // account ID, metadata.account_id, to your backend app server.
+    //
+    // sendDataToBackendServer({
+    //   public_token: public_token,
+    //   account_id: metadata.account_id
+    // });
+    console.log('Public Token: ' + public_token);
+    console.log('Customer-selected account ID: ' + metadata.account_id);
+  },
+  onExit: function() {
+    // The user exited the Link flow.
+  },
+});
+
+
+// Trigger the standard Institution Select view
+document.getElementById('linkButton').onclick = function() {
+  linkHandler.open();
+};
 </script>

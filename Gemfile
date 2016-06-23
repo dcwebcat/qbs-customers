@@ -9,6 +9,9 @@ gem 'autoprefixer-rails'
 gem 'bcrypt', '3.1.7'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'stripe'
+gem 'plaid'
+gem 'plaid-ruby'
+
 # Use sqlite3 as the database for Active Record
 
 # Use SCSS for stylesheets

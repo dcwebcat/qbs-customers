@@ -57,7 +57,9 @@ class ChargesController < ApplicationController
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to new_charge_path
-  
+    ################################## 
+    
+    user = Plaid::User.exchange_token('public_token', 'account_id', product: :auth)
     
   end
   

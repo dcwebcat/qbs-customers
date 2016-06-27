@@ -1,9 +1,11 @@
 class UserMailer < ApplicationMailer
-    include ApplicationHelper
+    
   
     default from: "noreply@copyquality.com"
     
-    
+    def current_user
+        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    end
     
     def readings_email(reading)
         @reading = reading
@@ -17,13 +19,13 @@ class UserMailer < ApplicationMailer
         mail(to: 'jenn@copyquality.com', subject: 'Updated Meter Readings')
     end
     
-    def support_email(message)
+    def support_email(message, current_user)
         @message = message
-        @message.current_user = current_user
+
     
         mail(to: 'jenn@copyquality.com', 
             :from => @message.email, 
             :subject => 'Support Request', 
-            :body => 'Customer Name: ' + @message.name + '\nCustomer Number: ' + @message.current_user.customer_number + '\nCompany: ' + @messgae.current_user.company  + '\nCustomer Phone: ' + @message.phone + '\nCustomer Message: ' + @message.content)
+            :body => "Customer Name: " + @message.name + "\r\nEmail: " + @message.email + "\r\nCustomer Number: " + current_user.customer_number + "\r\nCompany: " + current_user.company  + "\r\nPhone: " + @message.phone + "\r\nMessage: \r\n" + @message.content)
     end
 end

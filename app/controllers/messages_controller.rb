@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
 
     if @message.valid?
-      UserMailer.support_email(@message).deliver_now
+      UserMailer.support_email(@message, current_user).deliver_now
       flash[:success] = "Your request has been received. We will respond soon."
       redirect_to new_message_path
     else

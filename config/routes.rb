@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :messages, only: [:new, :create]
+
   resources :charges, only: [:new, :create, :index]
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
   get '/home', to: 'welcome#home'
   
   get '/support', to: 'support#index'
+  get '/support/files', to: 'support#files'
   
   resources :readings
   resources :users, except: [:destroy]

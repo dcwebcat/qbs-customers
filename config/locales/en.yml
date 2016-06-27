@@ -20,4 +20,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord: 
+    attributes:
+      reading:
+        equipment_number: "Equipment ID Number"
+        reading_bw: "Black and White Reading"
+        reading_c1: "Color Level 1 Reading"
+        reading_c2: "Color Level 2 Reading"
+        reading_c3: "Color Level 3 Reading"
+  activemodel:
+    attributes:
+      message:
+        content: "Your message"

@@ -6,4 +6,9 @@ class SupportController < ApplicationController
   
   end
     
+  def files
+    
+  end
+  
+  
 end

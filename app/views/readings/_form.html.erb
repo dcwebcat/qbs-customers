@@ -4,12 +4,21 @@
     <div class="col-md-8 well col-md-offset-2">
         <h4>If readings are 0, please enter 0. Do not leave blank.</h4>
         <%= form_for @reading do |f| %>
-            <%= f.label :equipment_number, "Equipment Number:" %>
+            <%= f.label :equipment_number, "Equipment ID Number:" %>
             <%= f.text_field :equipment_number %>
             
             <%= f.label :reading_bw, "Black and White Reading:" %>
             <%= f.text_field :reading_bw %>
+            <% if @reading.new_record? %>
+            <%= f.label :reading_c1, "Color Level 1 Reading:" %>
+            <%= f.text_field(:reading_c1, :value => 0) %>
             
+            <%= f.label :reading_c2, "Color Level 2 Reading:" %>
+            <%= f.text_field(:reading_c2, :value => 0) %>
+            
+            <%= f.label :reading_c3, "Color Level 3 Reading:" %>
+            <%= f.text_field(:reading_c3, :value => 0) %>
+            <% else %>
             <%= f.label :reading_c1, "Color Level 1 Reading:" %>
             <%= f.text_field :reading_c1 %>
             
@@ -18,7 +27,7 @@
             
             <%= f.label :reading_c3, "Color Level 3 Reading:" %>
             <%= f.text_field :reading_c3 %>
-            
+            <% end %>
             <%= f.submit (@reading.new_record? ? 'Log Meter Readings' : 'Edit Meter Readings'), class: "btn btn-success" %>
         <% end %>
             

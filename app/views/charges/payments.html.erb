@@ -2,42 +2,7 @@
   <h1>Make a Payment</h1>
   <hr/>
   <%= link_to "Pay with a Credit Card", new_charge_path, class: "btn btn-lg btn-primary btn-white-text" %>
-  <button id='sandboxLinkButton' class="btn btn-success btn-lg btn-white-text">Pay with a Bank Account</button>
-  <button id='liveLinkButton' class="btn btn-success btn-lg btn-white-text">Pay with a Live Bank Account</button>
-  
-
-    <script src="https://cdn.plaid.com/link/stable/link-initialize.js"></script>
-    <script>
-    // This demo uses two custom initializers so that we can provide
-    // both a sandbox and live demo on the same page.
-    // See: https://github.com/plaid/link/blob/master/README.md#step-2-custom-integration
-    var sandboxHandler = Plaid.create({
-      clientName: 'Quality Business Solutions',
-      env: 'tartan',
-      product: 'auth',
-      key: 'test_key',
-      onSuccess: function(token) {
-        window.location = '/banks/accounts?public_token=' + token;
-      },
-    });
-    var liveHandler = Plaid.create({
-      clientName: 'Quality Business Solutions',
-      env: 'tartan',
-      product: 'auth',
-      key: '41a8d274ee3df2c877874ce6bcb560',
-      onSuccess: function(token) {
-        window.location = '/banks/accounts?public_token=' + token;
-      },
-    });
-    // Open the "Institution Select" view using the sandbox Link handler.
-    document.getElementById('sandboxLinkButton').onclick = function() {
-      sandboxHandler.open();
-    };
-    // Open the "Institution Select" view using the live Link handler.
-    document.getElementById('liveLinkButton').onclick = function() {
-      liveHandler.open();
-    };
-    </script>
-  </div>
+  <%= link_to "Pay with a Bank Account", banks_accounts_path, class: "btn btn-lg btn-success btn-white-text" %>
+</div>
   
   

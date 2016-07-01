@@ -1,66 +1,47 @@
 <div class="container">
-    <div class="logo">Sum</div>
-        <h2 id='title'>Your accounts</h2>
-        <div class="sum-total account-item">
-          <h1 id='your-sum'></h1>
-          <span>Your Sum</span>
-        </div>
-        <div id='account-items'>
+    <div class="row">
+          <h1>Make a Payment</h1>
+          <hr/>
+         
+        <div class="col-md-4 col-md-offset-4">
+         
+
+               <button id='linkButton' class="btn btn-success btn-lg btn-white-text">Select Your Bank</button> 
+              <br><br>
+         
         </div>
     </div>
 </div>
 
-  <script>
-  // Pull the public_token from the query string and send it to the
-  // app server. The app server will make two Plaid API requests using
-  // your private client_id and secret.  The first will exchange the
-  // public_token for a Plaid access_token.  The second will use that
-  // access_token to retrieve account information, including account
-  // names and current balances.
-  var public_token = $.QueryString['public_token'];
-  if (public_token != null) {
-    $.ajax({
-      url: '/banks/accounts',
-      type: 'GET',
-      data: {
-        public_token: public_token,
+<script src="https://cdn.plaid.com/link/stable/link-initialize.js"></script>
+<script>
+var linkHandler = Plaid.create({
+      env: 'tartan',
+      product: 'auth',
+      clientName: 'Quality Business Solutions',
+      key: '41a8d274ee3df2c877874ce6bcb560',
+      selectAccount: true,
+      onLoad: function() {
+        // The Link module finished loading.
       },
-    }).done(function(data) {
-      var sum = 0;
-      if (data.accounts != null) {
-        // Generate a HTML snippet for each account that the Plaid API returned.
-        var renderedAccounts = data.accounts.map(function(account) {
-          var balance;
-          if (account.type === 'depository') {
-            balance = account.balance.available == null ? account.balance.current :
-                                                          account.balance.available;
-          } else {
-            balance = account.balance.current;
-          }
-          sum += balance;
-          var container = $('<div>').addClass('account-item');
-          var label = $('<h1>').text('$' + balance.toFixed(2))
-          var span = $('<span>').text(account.meta.name + ' ' + account.meta.number);
-          return container.append(label, span);
-        });
-        // Append the accounts to the body
-        $('#account-items').append(renderedAccounts);
-        $('#your-sum').text('$' + sum.toFixed(2));
-      } else {
-        // Show a simple error message - the request failed.
-        showError();
-      }
-    }).fail(function(err) {
-      // Show a simple error message - the request failed.
-      showError();
+      onSuccess: function(public_token, metadata) {
+        account_id = metadata.account_id
+        window.location = '/banks/new?public_token=' + public_token + '&account_id=' + account_id;
+        console.log('Public Token: ' + public_token);
+        console.log('Account ID: ' + account_id);
+        
+      },
+      onExit: function() {
+        // The user exited the Link flow.
+      },
     });
-  } else {
-    // Show a simple error message - no public_token was provided.
-    showError();
-  }
-  function showError() {
-    $('#account-items').hide();
-    $('.account-item').first().hide();
-    $('#title').text('We had trouble pulling your accounts.');
-  }
-  </script>
+
+
+// Trigger the standard Institution Select view
+document.getElementById('linkButton').onclick = function() {
+  linkHandler.open();
+};
+</script>
+
+
+

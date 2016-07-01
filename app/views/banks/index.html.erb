@@ -1,0 +1,38 @@
+<% if logged_in? and current_user.admin? %>
+<div class="container">
+    <div class="row">
+          <h1>All Bank Payments</h1>
+          <hr/>
+          <div class="center">
+              <%= will_paginate %>
+          </div>
+        <div class="col-md-12">
+            
+            <% @banks.each do |bank| %>
+    
+                <div class="row well">
+                    <div class="col-md-1">
+                        <h4><%= link_to bank.user.customer_number, user_path(bank.user) %></h4>
+                    </div>
+                    <div class="col-md-5">
+                        <h4><%= bank.user.company %></h4>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>Invoice Number: <%= bank.invoice %></h4>
+                        <small>Paid <%= time_ago_in_words(bank.created_at) %> ago</small><br>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>Payment Amount: $<%= bank.amount %></h4>
+                        <h4>Paid By: <%= bank.customer %></h4>
+                    </div>
+                    
+                </div>
+            
+            <% end %>
+            <div class="center">
+              <%= will_paginate %>
+          </div>
+        </div>
+    </div>
+</div>
+<% end %>

@@ -35,11 +35,13 @@ class BanksController < ApplicationController
     user2 = Plaid::User.exchange_token(public_token, account_id, product: :auth)
   
     # Initialize a Plaid user
-  
+    #user2 = Plaid::User.load(:auth, exchange_token_response.access_token)
     
     @invoice = params[:invoice]
     @amount = params[:amount]
     @email = params[:email]
+    @public_token = params[:public_token]
+    @account_id = params[:account_id]
   
     @amount = @amount.gsub('$', '').gsub(',', '')
   
@@ -64,14 +66,19 @@ class BanksController < ApplicationController
     @bank.invoice = @invoice
     @bank.amount = @amount * 0.01
     @bank.customer = @email
+    @bank.public_token = @public_token
+    @bank.account_id = @account_id
     @bank.save
+    
+    Stripe.api_key = "sk_test_krH6JA3aFgKFo9NdzXOj7k83"
     
     Stripe::Charge.create(
       :amount => @amount,
       :currency => 'usd',
       :source => user2.stripe_bank_account_token,
       :description => 'Payment for Invoice #' + @invoice + ' for Customer #' + current_user.customer_number,
-      :receipt_email => @email
+      :receipt_email => @email,
+      :metadata => {"Customer Email: " => @email}
     )
   end
   

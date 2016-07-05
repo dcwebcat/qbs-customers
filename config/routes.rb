@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :messages, only: [:new, :create]
 
   resources :charges, only: [:new, :create, :index]
+  get '/payments', to: 'charges#payments'
+  
+  resources :banks, only: [:new, :create, :index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -33,6 +36,6 @@ Rails.application.routes.draw do
   #patch '/readings/:id', to: 'readings#update'
   #get '/readings/:id', to: 'readings#show', as: 'reading'
   #delete '/readings/:id', to: 'readings#destroy'
-  
+
 
 end

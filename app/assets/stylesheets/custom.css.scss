@@ -65,6 +65,9 @@ h3 {
   margin-bottom: 15px;
 }
 
+.list-well h4 {
+	font-size: 105%;
+}
 
 a {
 	color: #e62222;
@@ -342,3 +345,29 @@ p.recorded {
 @media screen and (max-width: 600px) {
 	
 }
+
+/* ------------------------------ */
+/* Bank Accounts */
+/* ------------------------------ */
+
+.accounts span {
+  float: right;
+  position: relative;
+  bottom: -32px;
+  font-size: 2em;
+  text-align: right;
+  color: rgb(147, 147, 147);
+}
+
+.accounts .container {
+  height: inherit;
+}
+
+.account-item {
+  background: white;
+  padding: 2em;
+  margin-bottom: 21px;
+  border-radius: 3px;
+  border: 1px solid rgb(216, 216, 216);
+}
+

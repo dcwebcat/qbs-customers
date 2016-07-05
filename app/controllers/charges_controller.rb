@@ -8,7 +8,9 @@ class ChargesController < ApplicationController
     @charges = Charge.all.order('created_at DESC').paginate(page: params[:page], per_page: 10)
   end 
 
- 
+ def payments
+   
+ end
   
   
   def new
@@ -57,9 +59,5 @@ class ChargesController < ApplicationController
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to new_charge_path
-  
-    
   end
-  
-  
 end

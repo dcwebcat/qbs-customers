@@ -1,0 +1,37 @@
+<div class="container support center">
+  <h1>Make a Payment</h1>
+  <hr/>
+  <%= link_to "Pay with a Credit Card", new_charge_path, class: "btn btn-lg btn-primary btn-white-text" %>
+  <button id='linkButton' class="btn btn-success btn-lg btn-white-text">Pay with a Bank Account</button> 
+</div>
+  
+  <script src="https://cdn.plaid.com/link/stable/link-initialize.js"></script>
+<script>
+var linkHandler = Plaid.create({
+      env: 'tartan',
+      product: 'auth',
+      clientName: 'Quality Business Solutions',
+      key: '41a8d274ee3df2c877874ce6bcb560',
+      selectAccount: true,
+      onLoad: function() {
+        // The Link module finished loading.
+      },
+      onSuccess: function(public_token, metadata) {
+        account_id = metadata.account_id
+        window.location = '/banks/new?public_token=' + public_token + '&account_id=' + account_id;
+        console.log('Public Token: ' + public_token);
+        console.log('Account ID: ' + account_id);
+        
+      },
+      onExit: function() {
+        // The user exited the Link flow.
+      },
+    });
+
+
+// Trigger the standard Institution Select view
+document.getElementById('linkButton').onclick = function() {
+  linkHandler.open();
+};
+</script>
+

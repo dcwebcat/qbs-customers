@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+          <h1>Make a Payment</h1>
+          <hr/>
+         
+        <div class="col-md-4 col-md-offset-4">
+        
+            <%= form_tag banks_path do %>
+              <div id="error_explanation">
+                <% if flash[:error].present? %>
+                    <p><%= flash[:error] %></p>
+                <% end %>
+              </div>
+              <% url = request.original_url %>
+              <% uri  = URI.parse(url) %>
+              <% params = CGI.parse(uri.query) %>
+              
+                <%= hidden_field_tag(:public_token, params['public_token'].first) %>
+                <%= hidden_field_tag(:account_id, params['account_id'].first) %>
+              <article>
+                <%= label_tag(:invoice, 'Invoice Number:') %>
+                <%= text_field_tag(:invoice) %>
+              </article>
+              <article>
+                <%= label_tag(:amount, 'Payment Amount:') %>
+                <%= text_field_tag(:amount) %>
+              </article>
+              <article>
+                <%= label_tag(:email, 'Email:') %>
+                <%= text_field_tag(:email) %>
+              </article>
+              
+              <button class="btn btn-success btn-lg btn-white-text">Make Payment</button> 
+              <br><br>
+            <% end %> 
+        </div>
+    </div>
+</div>

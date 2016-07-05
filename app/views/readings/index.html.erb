@@ -16,7 +16,7 @@
             <h4><%= reading.user.company %></h4>
         </div>
         <div class="col-md-3">
-            <h4>Equipment Number: <%= link_to reading.equipment_number, reading_path(reading) %></h4>
+            <h4>Equipment ID Number: <%= link_to reading.equipment_number, reading_path(reading) %></h4>
             <small>Created <%= time_ago_in_words(reading.created_at) %> ago</small><br>
             <small>Updated <%= time_ago_in_words(reading.updated_at) %> ago</small>
         </div>

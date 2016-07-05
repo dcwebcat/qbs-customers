@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   
-  get '/banks/accounts', to: 'banks#accounts'
-  
   resources :messages, only: [:new, :create]
 
   resources :charges, only: [:new, :create, :index]

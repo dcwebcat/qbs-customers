@@ -1,7 +1,7 @@
 <% if logged_in? and current_user.admin? %>
 <div class="container">
     <div class="row">
-          <h1>All Payments</h1>
+          <h1>All Card Payments</h1>
           <hr/>
           <div class="center">
               <%= will_paginate %>
@@ -10,7 +10,7 @@
             
             <% @charges.each do |charge| %>
     
-                <div class="row well">
+                <div class="row well list-well">
                     <div class="col-md-1">
                         <h4><%= link_to charge.user.customer_number, user_path(charge.user) %></h4>
                     </div>

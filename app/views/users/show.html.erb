@@ -2,21 +2,24 @@
 <h1>Readings and Payments for Customer Number: <%= @user.customer_number %></h1>
 <h4 class="center"><%= @user.company %></h4>
 <hr/>
+<% if logged_in? && current_user.admin? == true %>
 <div class="center">
 <%= link_to "Edit Customer", edit_user_path(@user), class: "center btn btn-success btn-white-text" %><br>
 
 </div>
+<% end %>
 <br>
 
     <div class="row well">
         <div class="col-md-12">
             <% @readings.each do |reading| %>
-              <p class="center">Equipment Number: <%= link_to reading.equipment_number, reading_path(reading) %> - <span class="quiet"><small><%= time_ago_in_words(reading.created_at) %> ago</small></span></p> 
+              <p class="center">Equipment ID Number: <%= link_to reading.equipment_number, reading_path(reading) %> - <span class="quiet"><small><%= time_ago_in_words(reading.created_at) %> ago</small></span></p> 
 
             <% end %>
         </div>
     </div>
     <div class="row well">
+        <h2>Card Payments</h2>
         <% @charges.each do |charge| %>
         <div class="col-sm-3 invoice-list">
               <p>Invoice Number: <%= charge.invoice %></p> 
@@ -29,6 +32,23 @@
         </div>
         <div class="col-sm-3 invoice-list">
               <span class="quiet"><small><%= time_ago_in_words(charge.created_at) %> ago</small></span> 
+        </div>
+        <% end %>
+    </div>
+    <div class="row well">
+        <h2>Bank Payments</h2>
+        <% @banks.each do |bank| %>
+        <div class="col-sm-3 invoice-list">
+              <p>Invoice Number: <%= bank.invoice %></p> 
+        </div>
+        <div class="col-sm-3 invoice-list">
+              <p>Payment Amount: $<%= bank.amount %></p>  
+        </div>
+        <div class="col-sm-3 invoice-list">
+              <p>Paid By: <%= bank.customer %></p> 
+        </div>
+        <div class="col-sm-3 invoice-list">
+              <span class="quiet"><small><%= time_ago_in_words(bank.created_at) %> ago</small></span> 
         </div>
         <% end %>
     </div>

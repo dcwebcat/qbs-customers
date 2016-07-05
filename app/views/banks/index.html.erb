@@ -10,7 +10,7 @@
             
             <% @banks.each do |bank| %>
     
-                <div class="row well">
+                <div class="row well list-well">
                     <div class="col-md-1">
                         <h4><%= link_to bank.user.customer_number, user_path(bank.user) %></h4>
                     </div>

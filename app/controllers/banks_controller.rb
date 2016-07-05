@@ -8,20 +8,11 @@ class BanksController < ApplicationController
     @banks = Bank.all.order('created_at DESC').paginate(page: params[:page], per_page: 10)
   end 
 
- def accounts
  
- end
   
   
   def new
     @bank = Bank.new(public_token: params[:public_token])
-
-    
-    # Pull the public_token from the querystring
-    public_token = params[:public_token]
-    account_id = params[:account_id]
-    
-    
   end
 
   def create
@@ -48,18 +39,14 @@ class BanksController < ApplicationController
     begin
       @amount = Float(@amount).round(2)
     rescue
-      flash[:error] = 'Charge not completed. Please enter a valid amount in USD ($).'
-      redirect_to new_bank_path
+      flash[:error] = 'Charge not completed. Please try again and enter a valid amount in USD ($).'
+      redirect_to payments_path
       return
     end
   
     @amount = (@amount * 100).to_i # Must be an integer!
   
-    if @amount < 500
-      flash[:error] = 'Charge not completed. Payment amount must be at least $5.'
-      redirect_to new_bank_path
-      return
-    end
+    
     
     @bank = Bank.new
     @bank.user = current_user
@@ -70,7 +57,7 @@ class BanksController < ApplicationController
     @bank.account_id = @account_id
     @bank.save
     
-    Stripe.api_key = "sk_test_krH6JA3aFgKFo9NdzXOj7k83"
+    
     
     Stripe::Charge.create(
       :amount => @amount,

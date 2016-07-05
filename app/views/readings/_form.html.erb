@@ -1,8 +1,8 @@
 <%= render 'shared/errors', obj: @reading %>
 
 <div class="row">
-    <div class="col-md-8 well col-md-offset-2">
-        <h4>If readings are 0, please enter 0. Do not leave blank.</h4>
+    <div class="col-md-4 well col-md-offset-4">
+        <h4>If readings are 0, please enter 0.<br>Do not leave blank.</h4>
         <%= form_for @reading do |f| %>
             <%= f.label :equipment_number, "Equipment ID Number:" %>
             <%= f.text_field :equipment_number %>

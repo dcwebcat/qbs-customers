@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get '/support', to: 'support#index'
   get '/support/files', to: 'support#files'
   
+  resources :orders, only: [:new, :create]
+  
   resources :readings
   resources :users, except: [:destroy]
   

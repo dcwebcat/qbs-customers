@@ -1,0 +1,62 @@
+<div class="container">
+  <h1>Order Supplies</h1>
+  <hr/>
+  <%= render 'shared/errors', obj: @order %>
+  <div class="row">
+    <div class="col-md-6 well col-md-offset-3">
+      <%= form_for @order do |f| %>
+       
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      
+        <%= f.label :phone %>
+        <%= f.telephone_field :phone %>
+      
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+        
+        <h5>Supplies Needed:</h5>
+        
+        <div class="checkbox">
+          <%= f.check_box(:black_toner) %>
+          <%= f.label(:black_toner, "Black Toner") %>
+        </div>
+        <div class="checkbox">
+          <%= f.check_box(:cyan_toner) %>
+          <%= f.label(:cyan_toner, "Cyan Toner") %>
+        </div>
+        <div class="checkbox">
+          <%= f.check_box(:magenta_toner) %>
+          <%= f.label(:magenta_toner, "Magenta Toner") %>
+        </div>
+        <div class="checkbox">
+          <%= f.check_box(:yellow_toner) %>
+          <%= f.label(:yellow_toner, "Yellow Toner") %>
+        </div>
+        <div class="checkbox">
+          <%= f.check_box(:waste_toner) %>
+          <%= f.label(:waste_toner, "Waste Toner Bottle") %>
+        </div>
+        <div class="checkbox">
+          <%= f.check_box(:staples) %>
+          <%= f.label(:staples, "Staples") %>
+        </div>
+        <div class="checkbox">
+          <%= f.check_box(:postage_labels) %>
+          <%= f.label(:postage_labels, "Postage Labels") %>
+        </div>
+        <div class="checkbox">
+          <%= f.check_box(:postage_sealant) %>
+          <%= f.label(:postage_sealant, "Postage Sealant Solution") %>
+        </div>
+        <div class="checkbox">
+          <%= f.check_box(:postage_ink) %>
+          <%= f.label(:postage_ink, "Postage Ink") %>
+        </div>
+        <%= f.hidden_field(:current_user) %>
+      
+        <%= f.submit 'Order Supplies', class: 'btn btn-success' %>
+      <% end %>
+    </div>
+  </div>
+</div>

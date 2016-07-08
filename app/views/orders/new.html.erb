@@ -4,6 +4,7 @@
   <%= render 'shared/errors', obj: @order %>
   <div class="row">
     <div class="col-md-6 well col-md-offset-3">
+      <h4>Enter a separate order for each Equipment ID Number.</h4>
       <%= form_for @order do |f| %>
        
         <%= f.label :name %>
@@ -14,6 +15,9 @@
       
         <%= f.label :email %>
         <%= f.email_field :email %>
+        
+        <%= f.label(:equipment_id, "Equipment ID Number") %>
+        <%= f.email_field :equipment_id %>
         
         <h5>Supplies Needed:</h5>
         

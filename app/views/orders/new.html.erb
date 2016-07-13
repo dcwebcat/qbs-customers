@@ -3,11 +3,11 @@
   <hr/>
   <%= render 'shared/errors', obj: @order %>
   <div class="row">
-    <div class="col-md-6 well col-md-offset-3">
+    <div class="col-md-4 well col-md-offset-4">
       <h4>Enter a separate order for each Equipment ID Number.</h4>
       <%= form_for @order do |f| %>
        
-        <%= f.label :name %>
+        <%= f.label :name, "Your Name" %>
         <%= f.text_field :name %>
       
         <%= f.label :phone %>
@@ -56,6 +56,10 @@
         <div class="checkbox">
           <%= f.check_box(:postage_ink) %>
           <%= f.label(:postage_ink, "Postage Ink") %>
+        </div>
+        <div class="checkbox">
+          <%= f.check_box(:wide_format) %>
+          <%= f.label(:wide_format, "Wide Format Paper") %>
         </div>
         <%= f.hidden_field(:current_user) %>
       

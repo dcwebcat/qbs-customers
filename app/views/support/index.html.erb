@@ -1,8 +1,10 @@
 <div class="container support center">
   <h1>Support</h1>
   <hr/>
-  <%= link_to "Drivers and Manuals", support_files_path, class: "btn btn-lg btn-primary btn-white-text" %>
-  <%= link_to "Order Supplies", new_order_path, class: "btn btn-lg btn-success btn-white-text" %>
-  <%= link_to "Request Support", new_message_path, class: "btn btn-lg btn-warning btn-white-text" %>
-  <%= link_to "Call Support Now", "tel://1-410-337-3700", class: "btn btn-lg btn-danger btn-white-text" %>
+  <%= link_to "Drivers and Manuals", support_files_path, class: "btn btn-lg btn-primary btn-white-text btn-support" %>
+  <%= link_to "Order Supplies", new_order_path, class: "btn btn-lg btn-success btn-white-text btn-support" %>
+  <%= link_to "Request Support", new_message_path, class: "btn btn-lg btn-warning btn-white-text btn-support" %>
+  <div class="visible-xs-block">
+    <%= link_to "Call Support Now", "tel://1-410-337-3700", class: "btn btn-lg btn-danger btn-white-text btn-support" %>
+  </div>
 </div>

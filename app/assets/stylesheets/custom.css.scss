@@ -387,6 +387,8 @@ p.recorded {
   border: 1px solid rgb(216, 216, 216);
 }
 
-@media screen and (max-width: 600px) {
-	
+@media screen and (max-width: 768px) {
+	.btn-support {
+		margin-bottom: 10px;
+	}
 }

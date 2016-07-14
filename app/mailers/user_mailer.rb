@@ -10,19 +10,19 @@ class UserMailer < ApplicationMailer
     def readings_email(reading)
         @reading = reading
         @url = 'http://copyquality.com/customer_portal'
-        mail(to: 'jenn@copyquality.com', subject: 'New Meter Readings')
+        mail(to: 'lisa@copyquality.com', subject: 'New Meter Readings')
     end
     
     def updated_readings_email(reading)
         @reading = reading
         @url = 'http://copyquality.com/customer_portal'
-        mail(to: 'jenn@copyquality.com', subject: 'Updated Meter Readings')
+        mail(to: 'lisa@copyquality.com', subject: 'Updated Meter Readings')
     end
     
     def support_email(message, current_user)
         @message = message
     
-        mail(to: 'jenn@copyquality.com', 
+        mail(to: 'ahs@copyquality.com', 
             :from => @message.email, 
             :subject => 'Support Request', 
             :body => "Customer Name: " + @message.name + "\r\nEmail: " + @message.email + "\r\nCustomer Number: " + current_user.customer_number + "\r\nCompany: " + current_user.company  + "\r\nPhone: " + @message.phone + "\r\n\r\nMessage: \r\n" + @message.content)
@@ -31,7 +31,7 @@ class UserMailer < ApplicationMailer
     def order_email(order, current_user)
         @order = order
     
-        mail(to: 'jenn@copyquality.com', 
+        mail(to: 'lisa@copyquality.com', 
             :from => @order.email, 
             :subject => 'Supplies Request', 
             :body => "Customer Name: " + @order.name + "\r\nEmail: " + @order.email + "\r\nCustomer Number: " + current_user.customer_number + 

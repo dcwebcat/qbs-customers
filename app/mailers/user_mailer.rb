@@ -9,29 +9,29 @@ class UserMailer < ApplicationMailer
     
     def readings_email(reading)
         @reading = reading
-        @url = 'http://copyquality.com/customer_portal'
-        mail(to: 'lisa@copyquality.com', subject: 'New Meter Readings')
+        @url = 'http://customers.copyquality.com/'
+        mail(to: 'supplies@copyquality.com', subject: 'New Meter Readings')
     end
     
     def updated_readings_email(reading)
         @reading = reading
-        @url = 'http://copyquality.com/customer_portal'
-        mail(to: 'lisa@copyquality.com', subject: 'Updated Meter Readings')
+        @url = 'http://customers.copyquality.com/'
+        mail(to: 'supplies@copyquality.com', subject: 'Updated Meter Readings')
     end
     
     def support_email(message, current_user)
         @message = message
     
-        mail(to: 'ahs@copyquality.com', 
+        mail(to: 'service@copyquality.com', 
             :from => @message.email, 
             :subject => 'Support Request', 
-            :body => "Customer Name: " + @message.name + "\r\nEmail: " + @message.email + "\r\nCustomer Number: " + current_user.customer_number + "\r\nCompany: " + current_user.company  + "\r\nPhone: " + @message.phone + "\r\n\r\nMessage: \r\n" + @message.content)
+            :body => "Customer Name: " + @message.name + "\r\nEmail: " + @message.email + "\r\nCustomer Number: " + current_user.customer_number + "\r\nCompany: " + current_user.company  + "\r\nService ID: " + @message.service_id + "\r\nPhone: " + @message.phone + "\r\n\r\nMessage: \r\n" + @message.content)
     end
     
     def order_email(order, current_user)
         @order = order
     
-        mail(to: 'lisa@copyquality.com', 
+        mail(to: 'supplies@copyquality.com', 
             :from => @order.email, 
             :subject => 'Supplies Request', 
             :body => "Customer Name: " + @order.name + "\r\nEmail: " + @order.email + "\r\nCustomer Number: " + current_user.customer_number + 

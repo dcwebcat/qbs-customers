@@ -51,7 +51,7 @@
         </div>
         <div class="checkbox">
           <%= f.check_box(:postage_sealant) %>
-          <%= f.label(:postage_sealant, "Postage Sealant Solution") %>
+          <%= f.label(:postage_sealant, "Postage Sealant") %>
         </div>
         <div class="checkbox">
           <%= f.check_box(:postage_ink) %>
@@ -61,6 +61,11 @@
           <%= f.check_box(:wide_format) %>
           <%= f.label(:wide_format, "Wide Format Paper") %>
         </div>
+        
+        <h5>Notes:<br>(Is the machine down? Do you need multiples? etc.)</h5>
+        <%= f.text_area(:supply_message) %>
+        
+        
         <%= f.hidden_field(:current_user) %>
       
         <%= f.submit 'Order Supplies', class: 'btn btn-success' %>

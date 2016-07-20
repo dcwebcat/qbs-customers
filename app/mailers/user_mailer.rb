@@ -38,6 +38,7 @@ class UserMailer < ApplicationMailer
             "\r\nCompany: " + current_user.company  + "\r\nPhone: " + @order.phone + "\r\nService ID: " + @order.service_id + "\r\n\r\nSupplies Needed: \r\nBlack Toner: " + @order.black_toner + 
             "\r\nCyan Toner: " + @order.cyan_toner + "\r\nMagenta Toner: " + @order.magenta_toner + "\r\nYellow Toner: " + @order.yellow_toner +
             "\r\nWaste Toner Bottle: " + @order.waste_toner + "\r\nStaples: " + @order.staples + "\r\nPostage Labels: " + @order.postage_labels + 
-            "\r\nPostage Sealant Solution: " + @order.postage_sealant + "\r\nPostage Ink: " + @order.postage_ink)
+            "\r\nPostage Sealant Solution: " + @order.postage_sealant + "\r\nPostage Ink: " + @order.postage_ink +
+            "\r\nWide Format Paper: " + @order.wide_format + "\r\nNotes: " + @order.supply_message)
     end
 end

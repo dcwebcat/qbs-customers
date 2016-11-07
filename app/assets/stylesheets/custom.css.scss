@@ -410,4 +410,15 @@ p.recorded {
 	.btn-support {
 		margin-bottom: 10px;
 	}
+	
+}
+@media screen and (max-width: 991px) {
+	footer .sitemap{
+		text-align: center;
+	}
+	
+	.footer-address, .xr_noreset, #bbblinkimg {
+		text-align: center;
+	}
+	
 }

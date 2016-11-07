@@ -126,11 +126,13 @@ a:focus {
 }
 
 .navbar li a{
+	background-image: linear-gradient(to bottom,#fff 0,#fff 100%);
 	height: 50px;
 }
 
 .navbar-collapse{
 	border-top: 0 !important;
+	background-image: linear-gradient(to bottom,#fff 0,#fff 100%);
 }
 
 .navbar-toggle{

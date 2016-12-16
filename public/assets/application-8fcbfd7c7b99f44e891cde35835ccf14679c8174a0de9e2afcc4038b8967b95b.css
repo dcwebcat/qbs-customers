@@ -9023,15 +9023,16 @@ a.dropdown-toggle:focus {
 .navbar-brand {
   height: auto;
   padding: 10px 15px;
+  z-index: 10;
 }
 
-/* line 240, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 241, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 .navbar-default {
   min-height: 80px !important;
   display: block !important;
 }
 
-/* line 246, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 247, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 .main-nav {
   list-style: none;
   min-height: 80px;
@@ -9039,13 +9040,13 @@ a.dropdown-toggle:focus {
   color: #808080;
 }
 
-/* line 253, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 254, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 .main-nav li {
   display: inline-block;
   margin-left: 8px;
 }
 
-/* line 258, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 259, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 .main-nav li a:link,
 .main-nav li a:visited {
   padding: 30px 10px 20px 10px;
@@ -9056,13 +9057,13 @@ a.dropdown-toggle:focus {
   transition: border-bottom 0.2s;
 }
 
-/* line 268, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 269, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 .main-nav li a:hover,
 .main-nav li a:active {
   border-bottom: 4px solid #e62222;
 }
 
-/* line 273, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 274, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 .dropdown-menu > li > a:focus,
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:link,
@@ -9073,15 +9074,30 @@ a.dropdown-toggle:focus {
   color: #808080;
 }
 
-/* line 283, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 284, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 .navbar-right:last-child {
   margin-right: 20px;
+}
+
+/* line 288, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+.navbar-default {
+  box-shadow: 0 3px 3px #888888;
+}
+
+/* line 293, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+.navbar-spacing {
+  padding-top: 20px;
+}
+
+/* line 297, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+.jumbotron {
+  margin-top: -20px;
 }
 
 /* ------------------------------ */
 /* Footer */
 /* ------------------------------ */
-/* line 291, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 305, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 footer {
   background-color: #272727;
   color: #fff;
@@ -9089,19 +9105,19 @@ footer {
   font-size: 90%;
 }
 
-/* line 298, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 312, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 footer.comment-meta {
   background: none;
   color: #000000;
 }
 
-/* line 302, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 316, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 footer.entry-footer {
   background: none;
   color: #000000;
 }
 
-/* line 307, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 321, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 footer .sitemap {
   list-style: none;
   margin-bottom: 10px;
@@ -9109,35 +9125,35 @@ footer .sitemap {
   padding: 0 20px;
 }
 
-/* line 314, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 328, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 footer h4 {
   font-size: 14px;
 }
 
-/* line 318, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 332, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 footer a:link,
 footer a:visited {
   color: #fff;
 }
 
-/* line 323, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 337, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 footer a:hover,
 footer a:active {
   color: #fff;
   text-decoration: underline;
 }
 
-/* line 329, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 343, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 .footer-address {
   text-align: right;
 }
 
-/* line 333, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 347, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 footer img {
   margin-bottom: 10px;
 }
 
-/* line 336, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 350, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 footer img.elite {
   border-radius: 50%;
 }
@@ -9145,12 +9161,12 @@ footer img.elite {
 /* ------------------------------ */
 /* Misc */
 /* ------------------------------ */
-/* line 344, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 358, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 .well {
   border: 1px solid #e62222;
 }
 
-/* line 348, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 362, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 input, textarea, select, .uneditable-input {
   border: 1px solid #333333;
   border-radius: 5px;
@@ -9158,32 +9174,32 @@ input, textarea, select, .uneditable-input {
   margin-bottom: 15px;
 }
 
-/* line 355, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 369, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 input {
   height: auto !important;
 }
 
-/* line 359, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 373, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 p.recorded {
   padding-top: 10px;
 }
 
-/* line 363, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 377, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 .support {
   height: 400px;
 }
 
-/* line 367, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 381, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 .invoice-list {
   height: 40px;
 }
 
-/* line 375, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 389, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 .checkbox label {
   margin-left: 5px !important;
 }
 
-/* line 379, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 393, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 .checkbox input[type="checkbox"] {
   margin-left: 0 !important;
 }
@@ -9191,7 +9207,7 @@ p.recorded {
 /* ------------------------------ */
 /* Bank Accounts */
 /* ------------------------------ */
-/* line 388, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 402, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 .accounts span {
   float: right;
   position: relative;
@@ -9201,12 +9217,12 @@ p.recorded {
   color: #939393;
 }
 
-/* line 397, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 411, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 .accounts .container {
   height: inherit;
 }
 
-/* line 401, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+/* line 415, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
 .account-item {
   background: white;
   padding: 2em;
@@ -9216,24 +9232,19 @@ p.recorded {
 }
 
 @media screen and (max-width: 768px) {
-  /* line 410, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+  /* line 424, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
   .btn-support {
     margin-bottom: 10px;
   }
 }
 @media screen and (max-width: 991px) {
-  /* line 415, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+  /* line 430, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
   footer .sitemap {
     text-align: center;
   }
 
-  /* line 419, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
+  /* line 434, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
   .footer-address, .xr_noreset, #bbblinkimg {
-    text-align: center;
-  }
-
-  /* line 422, /home/ubuntu/workspace/app/assets/stylesheets/custom.css.scss */
-  a.rbhzbul {
     text-align: center;
   }
 }

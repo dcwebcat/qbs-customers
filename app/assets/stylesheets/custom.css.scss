@@ -285,6 +285,19 @@ a.dropdown-toggle:focus {
     margin-right: 20px;
 }
 
+.navbar-default {
+	-webkit-box-shadow: 0 3px 3px #888888;
+	box-shadow: 0 3px 3px #888888;
+}
+
+.navbar-spacing {
+	padding-top: 20px;
+}
+
+.jumbotron {
+	margin-top: -20px;
+}
+
 /* ------------------------------ */
 /* Footer */
 /* ------------------------------ */
